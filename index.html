@@ -26,29 +26,64 @@
       font-family: 'STHeiti';
     "
   >
+  <!--向后跳转-->
     <div>
       <a href="#A">点击跳转到最后</a>
       <a name="B"></a>
+      <hr>
+      <!--输入格-->
+    <form action="https://www.yuanshen.com/#/" target="_blank" align="center">
+      输入姓名加学分:
+      <input type="text" name="name" />
+      <button onclick="getpoint()" type="submit">确认</button>
+      <div id="showPoint"></div>
     </div>
     <!--天音-->
-    <a href="https://store.hikarifield.co.jp/shop/tenshisouzou" class="hezi"
+    <a
+      href="https://store.hikarifield.co.jp/shop/tenshisouzou"
+      class="hezi"
+      target="_blank"
       ><img
         src="https://i2.hdslb.com/bfs/article/734f6cf037ee2bc83149786a6becb60556319911.jpg@308w_232h_1c_!web-search-article-cover.avif"
         width="400px"
       />
     </a>
     <br />
-    <!--输入格-->
-    <form
-      action="https://www.yuanshen.com/#/"
-      target="_blank"
-      align="center"
-      target="_blank"
-    >
-      输入姓名加学分:
-      <input type="text" name="name" />
-      <input type="submit" value="确认" />
+    <!--输入框-->
+    <div>
+      <button onclick="clickCounter()" type="button">点击进入高潮</button></div>
+      <div id="result"></div>
+    </div>
+      <!--script-->
+      <script>
+        let clickcount = 0;
+        document.getElementById("result").innerHTML =
+          "人家还没高潮呢，行不行啊，杂 ❤ 鱼 大 哥 哥 ~";
+        document.getElementById("showPoint").innerHTML =
+          "当前学分为" + localStorage.point + "分";
+        function clickCounter() {
+          clickcount += 1;
+          if (clickcount) {
+            document.getElementById("result").innerHTML =
+              "呜~才让我高潮了" + clickcount + "次而已吗？杂鱼~ 杂鱼~";
+          } else {
+            document.getElementById("result").innerHTML =
+              "人家还没高潮呢，行不行啊，杂 ❤ 鱼 大 哥 哥 ~";
+          }
+        }
+
+        function getpoint() {
+          if (localStorage.point) {
+            localStorage.point = Number(localStorage.point) + 1;
+          } else {
+            localStorage.point = 1;
+          }
+          document.getElementById("showPoint").innerHTML =
+            "当前学分为" + localStorage.point + "分";
+        }
+      </script>
     </form>
+
     <div>
       <a href="1.html"><h1>娇妻甄选</h1></a>
     </div>
@@ -95,7 +130,37 @@
           height="200px"
       /></a>
     </div>
+    <!--赛博坟墓-->
+    <br>
+    <div style="width: 960px">
+      <h1 style="color: aqua">赛博坟墓</h1>
+      <div style="display: flex;">
+      <div style="flex: 1;"><a href="https://space.bilibili.com/383935850"><img src="dead.jpg" width="320px"></a></div>
+      <div style="flex: 2;text-indent: 2em;">    梦九鸟（2004——2024），字鸠可，号南桐
+        居士，出生于提瓦特泰拉苍蓝星自治区虚黑城基沃托斯区。北京脚臭大学院长，心理学博士
+        ，LTGB学硕士，明日香研究领域大神，鹿关领域大神，物理学大师，数学高手，太刀低手，
+        卡牌大师，琥珀纪著名诗人，歌手，作曲家，教育家，思想家，革命家，生物学家，地理学
+        家，垃圾分类家，睡觉学家，老人家，涉猎佛教，基督教，伊斯兰教，印度教，道教，儒教
+        ，寇教，纲教，精通114514国语言。
+      <br>早年，他依靠卖钩子赚取了他的第一笔资金，喜极而泣的他
+    将其用在了充原神上，遂成为了八重神子的狗。在追随八重神子期间学习了多种与人沟通的技巧，
+  成功学会了多种语言。中年时期，他精读数学，无私奉献的精神感动了明日香，在明日香女士的谆谆
+  教诲下，梦九鸟成为了善于看透人内心的神人，并被谥号“今日臭”，成为了最网第二臭的物种（注：
+历史上有且仅有的臭之首为田所浩二先生，被世人高度评价为“以一谥，无一适”。）晚年，梦九鸟与一
+被一个每个月都会来一次的不可名状之物侵扰，常年眼睛大，鼻子宽，精神萎靡，一蹶♂不振，并作出了
+千古名句“假忍闷，谁懂尔”（假如一直忍耐沉闷下去，怎会有人懂我呢？）。尽管梦九鸟前辈在尼古拉
+斯叶卡捷琳娜奥楚蔑洛夫凯撒乔治六世的帮助下积极治疗但无果，最终饮恨西北。
+<br>尽管梦九鸟先生已经迷失，但他的精神值得万千人民歌颂。我们在此立起赛博墓碑，以纪念他————
+群里最重要的南通为我们做出的贡献。 RI Pigu
+<br>
+<br>
+<br>
+<br>
+<br><font style="color: blueviolet;">轻推图片欣赏梦九鸟先生为世人留下的圣遗物</font></div></div>
+
+    </div>
     <!--底边-->
+    <hr>
     <div>
       <a href="#B">点击返回首页</a>
       <a name="A"></a>
