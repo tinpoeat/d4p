@@ -68,16 +68,16 @@
         document.getElementById("result").innerHTML =
           "人家还没高潮呢，行不行啊，杂 ❤ 鱼 欧 尼 酱 ~";
         document.getElementById("zako").innerHTML=
-          "<img src='zako.png' height='400px'>";
+          "<img src='./zako/zako.png' height='400px'>";
 
         function clickCounter() {
-          if(localStorage.point=undefined){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
           clickcount += 1;
           if (clickcount) {
             document.getElementById("result").innerHTML =
               "呜~才让人家高潮了" + clickcount + "次而已吗？真是杂鱼呢~杂鱼~杂鱼~";
             document.getElementById("zako").innerHTML=
-            "<img src='zako"+ Math.round(Math.random()*10) +".png' height='400px'>";
+            "<img src='./zako/zako"+ Math.round(Math.random()*10) +".png' height='400px'>";
           }
   
           if(clickcount===n){
@@ -89,7 +89,7 @@
         }
 
         function judgeName(){
-          if(localStorage.point=undefined){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
           if(document.getElementById("name").value!==""){
             localStorage.point ++;
             document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
@@ -103,7 +103,7 @@
           }
 
         function judge(){
-          if(localStorage.point=undefined){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
           if (document.getElementById("tomb").value==="九鸟"){
             alert("识别到赛博灵牌：九鸟，正在进入...");
             return true;
