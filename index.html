@@ -62,7 +62,6 @@
       <script>
         let clickcount = 0;
         let n = 10;
-
         document.getElementById("showPoint").innerHTML =
           "当前学分为" + localStorage.point + "分";
         document.getElementById("result").innerHTML =
@@ -71,7 +70,7 @@
           "<img src='zako.png' height='400px'>";
 
         function clickCounter() {
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           clickcount += 1;
           if (clickcount) {
             document.getElementById("result").innerHTML =
@@ -89,7 +88,7 @@
         }
 
         function judgeName(){
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           if(document.getElementById("name").value!==""){
             localStorage.point ++;
             document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
@@ -103,7 +102,7 @@
           }
 
         function judge(){
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.point=0}
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           if (document.getElementById("tomb").value==="九鸟"){
             alert("识别到赛博灵牌：九鸟，正在进入...");
             return true;
