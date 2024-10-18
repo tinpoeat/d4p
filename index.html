@@ -51,6 +51,7 @@
       <input type="text" id="name" name="name" />
       <button value="确认" type="submit">确认</button>
       <div id="showPoint"></div>
+    </form>
     </div>
     <!--天音输入框-->
     <br>
@@ -59,67 +60,6 @@
       <div id="result"></div>
       <div id="zako"></div>
     </div>
-      <!--script-->
-      <script>
-        let clickcount = 0;
-        let n = 10;
-        window.onload=init();
-        
-        
-        function init()
-        {
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)};
-          document.getElementById("showPoint").innerHTML =
-          "当前学分为" + localStorage.point + "分";
-        document.getElementById("result").innerHTML =
-          "人家还没高潮呢，行不行啊，杂 ❤ 鱼 欧 尼 酱 ~";
-        document.getElementById("zako").innerHTML=
-          "<img src='./zako/zako.png' height='400px'>";
-        }
-        function clickCounter() {
-          clickcount += 1;
-          if (clickcount) {
-            document.getElementById("result").innerHTML =
-              "呜~才让人家高潮了" + clickcount + "次而已吗？真是杂鱼呢~杂鱼~杂鱼~";
-            document.getElementById("zako").innerHTML=
-            "<img src='./zako/zako"+ Math.round(Math.random()*10) +".png' height='400px'>";
-          }
-  
-          if(clickcount===n){
-            localStorage.point++;
-            n+=10;
-            document.getElementById("showPoint").innerHTML =
-            "当前学分为" + localStorage.point + "分";
-          }
-        }
-
-        function judgeName(){
-          if(document.getElementById("name").value!==""){
-            localStorage.point ++;
-            document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
-            return true;}
-            else{
-              alert("蒙混过关，扣学分");
-              localStorage.point --;
-              document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
-              return false;
-            }
-          }
-
-        function judge(){
-          if (document.getElementById("tomb").value==="九鸟"){
-            alert("识别到赛博灵牌：九鸟，正在进入...");
-            return true;
-          }else{
-            alert("暗号错误，扣学分");
-            localStorage.point-=1;
-            document.getElementById("showPoint").innerHTML =
-            "当前学分为" + localStorage.point + "分";
-            return false;
-          }
-        }
-      </script>
-    </form>
 
     <div>
       <a href="1.html"><h1>娇妻甄选</h1></a>
@@ -140,7 +80,21 @@
         <br />
         <h1><font color="red">你在偷看别的女人？？！</font></h1>
       </div>
-      <div style="width: 480px"></div>
+      <!--音频触发-->
+      <div style="width: 480px">
+          <button onclick="Play('ciallo')">
+            <img src="cianima.jpg" width=100px>
+          </button>
+          <button onclick="Play('ndnn')">
+            <img src="ndnn.jpg" width=100px>
+          </button>
+          <button onclick="Play('murasame')" id="playbutton">
+            <img src="murasame.png" width="100px">
+          </button>
+          <audio id="ciallo" src="ciallo.m4a"></audio>
+          <audio id="ndnn" src="ndnn.mp3"></audio>
+      </div>
+      <!--飞起来-->
       <div style="width: 240px">
         <img src="okori.gif" width="240px" />
       </div>
@@ -181,5 +135,92 @@
       <a href="#B">点击返回首页</a>
       <a name="A"></a>
     </div>
+    <!--script-->
+    <script>
+      let clickcount = 0;
+      let n = 10;
+      let i = 1;
+      let ciallo = document.getElementById("ciallo");
+      let ndnn = document.getElementById("ndnn");
+      let murasame=['./murasame/murasame0.mp3','./murasame/murasame1.mp3',
+      './murasame/murasame2.mp3','./murasame/murasame3.mp3',
+      './murasame/murasame4.mp3','./murasame/murasame5.mp3',
+      './murasame/murasame6.mp3','./murasame/murasame7.mp3',
+      './murasame/murasame8.mp3','./murasame/murasame9.mp3',
+      './murasame/murasame10.mp3'];
+      
+      window.onload = function init(){
+        if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
+        document.getElementById("showPoint").innerHTML =
+        "当前学分为" + localStorage.point + "分";
+        document.getElementById("result").innerHTML =
+        "人家还没高潮呢，行不行啊，杂 ❤ 鱼 欧 尼 酱 ~";
+        document.getElementById("zako").innerHTML=
+        "<img src='./zako/zako.png' height='400px'>";
+      }
+
+      function playCompile(){
+            let randomIndex = Math.round(Math.random()*10);
+            let murasameSound = murasame[randomIndex];
+            let audio = new Audio(murasameSound);
+            audio.play();}
+        
+      function Play(id){
+        if(id==="ciallo"){
+          ciallo.play();
+        }
+        if(id==="ndnn"){
+          ndnn.play();
+        }       
+        if(id==="murasame"){
+            let playbutton = document.getElementById("playbutton");
+            playbutton.removeEventListener("click",playCompile());
+        }
+      }
+
+
+      function clickCounter() {
+        clickcount += 1;
+        if (clickcount) {
+          document.getElementById("result").innerHTML =
+            "呜~才让人家高潮了" + clickcount + "次而已吗？真是杂鱼呢~杂鱼~杂鱼~";
+          document.getElementById("zako").innerHTML=
+          "<img src='./zako/zako"+ Math.round(Math.random()*10) +".png' height='400px'>";
+        }
+
+        if(clickcount===n){
+          localStorage.point++;
+          n+=10;
+          document.getElementById("showPoint").innerHTML =
+          "当前学分为" + localStorage.point + "分";
+        }
+      }
+
+      function judgeName(){
+        if(document.getElementById("name").value!==""){
+          localStorage.point ++;
+          document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
+          return true;}
+          else{
+            alert("蒙混过关，扣学分");
+            localStorage.point --;
+            document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
+            return false;
+          }
+        }
+
+      function judge(){
+        if (document.getElementById("tomb").value==="九鸟"){
+          alert("识别到赛博灵牌：九鸟，正在进入...");
+          return true;
+        }else{
+          alert("暗号错误，扣学分");
+          localStorage.point-=1;
+          document.getElementById("showPoint").innerHTML =
+          "当前学分为" + localStorage.point + "分";
+          return false;
+        }
+      }
+    </script>
   </body>
 </html>
