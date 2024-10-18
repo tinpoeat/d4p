@@ -29,7 +29,7 @@
   <!--顶格-->
   <a name="B"></a>
   <!--芙宁娜-->
-    <div style="position: fixed;top: 0;left: 0;background-color: cornflowerblue;display: flex;flex-direction: row;align-items: center;">
+    <div style="background-color: cornflowerblue;align-items: center;display: flex;flex-direction: row;">
     <img src="furina.png" width="144px">
     <div style="color: aqua;font-size:80px ;">这是一只芙芙</div>
     </div>
@@ -57,21 +57,26 @@
     <div>
       <button onclick="clickCounter()" type="button">点击进入高潮</button></div>
       <div id="result"></div>
-      <div id="zako"></div><img src="" width="">
+      <div id="zako"></div>
     </div>
       <!--script-->
       <script>
         let clickcount = 0;
         let n = 10;
-        document.getElementById("showPoint").innerHTML =
+        window.onload=init();
+        
+        
+        function init()
+        {
+          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)};
+          document.getElementById("showPoint").innerHTML =
           "当前学分为" + localStorage.point + "分";
         document.getElementById("result").innerHTML =
           "人家还没高潮呢，行不行啊，杂 ❤ 鱼 欧 尼 酱 ~";
         document.getElementById("zako").innerHTML=
           "<img src='./zako/zako.png' height='400px'>";
-
+        }
         function clickCounter() {
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           clickcount += 1;
           if (clickcount) {
             document.getElementById("result").innerHTML =
@@ -89,7 +94,6 @@
         }
 
         function judgeName(){
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           if(document.getElementById("name").value!==""){
             localStorage.point ++;
             document.getElementById("showPoint").innerHTML="当前学分为" + localStorage.point + "分";
@@ -103,7 +107,6 @@
           }
 
         function judge(){
-          if(localStorage.point===undefined || localStorage.point===NaN){localStorage.setItem("point",0)}
           if (document.getElementById("tomb").value==="九鸟"){
             alert("识别到赛博灵牌：九鸟，正在进入...");
             return true;
